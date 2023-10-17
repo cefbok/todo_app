@@ -1,0 +1,19 @@
+
+<h1>My To Do APP! </h1>
+<h5><a href="{% url 'task-create' %}"> Add New Task </a></h5>
+
+<table>
+    <tr>
+        <th> ITEMS </th>
+        <th></th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td>{{ task.title }}</td>
+        <td><a href="{% url 'task-detail' task.id %}"> View </a></td>
+        <td><a href="{% url 'task-update' task.id %}"> Update </a></td>
+    </tr>
+    {% empty %}
+        <h4> the todo lists is empty! </h4>
+    {% endfor %}
+</table>
